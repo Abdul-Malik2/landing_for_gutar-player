@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Уроки игры на гитаре</title>
+    <meta name="description" content="лучший репититор для игры на гитаре в невинномысске"> <!-- информация для поисковиков -->
+    <!-- коды для fav иконки -->
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/fav_icons">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/fav_icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/fav_icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/fav_icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/fav_icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/fav_icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/fav_icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/fav_icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/fav_icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icons/fav_icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/fav_icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/fav_icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/fav_icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/fav_icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff"> <!-- просто меняют цвет оккошка браузера на белый -->
+    <meta name="msapplication-TileImage" content="icons/fav_icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff"> <!-- просто меняют цвет оккошка браузера на белый -->
+</head>
+<body>
+    <!-- первая секция -->
+    <section class="main-section">
+        <div class="hamburger">
+            <span class="hamburger__span"></span>
+            <span class="hamburger__span"></span>
+            <span class="hamburger__span"></span>
+        </div>
+        <div class="container main-section__nav-container"> <!-- ограничивает навигационное меню чтобы оно было по центру страницы -->
+            <!-- навигационное меню -->
+            <header class="main-section__header">
+                <a href="#"><img class="main-section__logo" src="icons/logo.svg" alt=""></a>
+            </header>
+                <nav class="main-section__nav nav-menu">
+                    <ul class="nav-menu__list">
+                        <li class="nav-menu__list-item"><a href="#about-me">Обо мне</a></li> <!-- при указании имени id не заьыть прописать ещё и знак # -->
+                        <li class="nav-menu__list-item"><a href="#lessons">Занятия</a></li>
+                        <li class="nav-menu__list-item"><a href="https://t.me/Abdul_Malik_271">Запись</a></li>
+                    </ul>
+                </nav>
+        </div>
+        <div class="container main-section__content-container">
+            <!-- левая часть первой секции -->
+            <div class="left-wrapper">
+                <img src="img/foto_gitar-man.png" alt="фото гитариста" class="left-wrapp__img">
+                <div class="left-wrapper__regtangle-blu regtangle"></div>
+                <div class="left-wrapper__regtangle-orange regtangle"></div>
+                <div class="left-wrapper__regtangle-grey regtangle"></div>
+            </div>
+            <!-- правая часть секции -->
+            <div class="right-wrapper">
+                <!-- иконки -->
+                <div class="right-wrapper__icons-box icons">
+                    <div class="icons__item">
+                        <img src="icons/Skype.svg" alt="логотип Skype">
+                    </div>
+                    <div class="icons__item">
+                        <img src="icons/VK.svg" alt="логотип VK">
+                    </div>
+                    <div class="icons__item">
+                        <img src="icons/Telegram.svg" alt="логотип Telegram">
+                    </div>
+                    <div class="icons__item">
+                        <img src="icons/instagram.svg" alt="логотип instagram">
+                    </div>
+                </div>
+                <!-- заголовок -->
+                <h1 class="right-wrapper__title title">Я Тамик<hr class="title__hr"></h1>
+                <!-- текст -->
+                <p class="right-wrapper__text">Репититор игры на гитаре <br> играю на гитаре <br> люблю кушать гамбургеры <br> Умаев Тамерлан Русланович </p>
+                <!-- кнопки -->
+                <div class="right-wrapper__button buttons">
+                    <button class="buttons__main-btn"><a class="main-btn" href="tel:+79064900005">Забронировать<br>урок </a> </button> <!-- <br> это тег для переноса слов -->
+                    <div class="right-wrapper__icon-btn buttons__icon-btn">
+                        <img src="icons/icon_for_chat.svg" alt="иконка чата">
+                        <p class="buttons__text"><a href="https://t.me/Abdul_Malik_271">Есть<br>вопроссы?</a></p>
+                    </div>
+                </div>
+                <div class="main-section__first-elipse elipse"> 
+                    <!-- elipse для создания описания main-section__first-elipse для позиционирования -->
+                    <div class="elipse__subtract"></div>
+                </div>
+                <div class="main-section__second-elipse elipse elipse_big"> 
+                    <!-- elipse для создания описания main-section__second-elipse для позиционирования elipse_big модефикатор -->
+                    <div class="elipse__subtract elipse__subtract_big"></div>
+                        
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- вторая секция -->
+    <section id="about-me" class="second-section"> <!-- задаём id для того что при нажатии на якорную ссылку в нав-меню сразу пе5реходить в эту секцию --> 
+        
+        <div class="second-section__container container ">
+            <!-- заголовок -->
+            <h2 class="second-section__lessons title">
+                <hr class="title__hr">Преподаю
+            </h2>
+            <!-- квадраты -->
+            <div class="second-section__square-box squares">
+                <div class="second-section__square-gray squre">
+                    <img src="img/electric-gitar.png" alt="Электро-гитара">
+                    <p class="squre__text">Электро <br> гитара</p>
+                </div>
+                <div class="second-section__square-orange squre">
+                    <img src="img/acustic-gitar.png" alt="Акустика-гитара">
+                    <p class="squre__text">Акустика <br> гитара</p>
+                </div>
+                <div class="second-section__square-blu squre">
+                    <img src="img/uculeli-gitar.png" alt="Укулелли-гитара">
+                    <p class="squre__text">Укулелли <br> гитара</p>
+                </div>
+            </div>
+            <!-- значки -->
+            <div class="second-section__signs-box signs-box">
+                <div class="sign-cup sign">
+                    <img src="icons/01-cup_icon.svg" alt="кубок" class="signs-box__img">
+                    <p class="sign-text"><span>7</span> <br> лет<br> преподаванию</p>
+                </div>
+                <div class="sign-review sign">
+                    <img src="icons/04-coment-icon_section2.svg" alt="отзывы" class="signs-box__img">
+                    <p class="sign-text"><span>271</span> <br> отзыв <br> на 5 звёзд</p>
+                </div>
+                <div class="sign-student sign">
+                    <img src="icons/03-studett-icon_section2.svg" alt="студенты" class="signs-box__img">
+                    <p class="sign-text"><span>462</span> <br> студентов<br> обучено</p>
+                </div>
+                <div class="sign-key sign">
+                    <img src="icons/02-key-icon_section2.svg" alt="скрипичный ключ" class="signs-box__img">
+                    <p class="sign-text"><span>5000</span> <br> часов <br> преподавания</p>
+                </div>
+            </div>
+            <div class="second-section__first-elipse elipse"> 
+                <div class="elipse__subtract"></div>
+            </div>
+            <div class="second-section__second-elipse elipse"> 
+                <div class="elipse__subtract"></div>
+            </div>
+        </div>
+    </section>
+    <!-- третья секция -->
+    <section id="lessons" class="third-section">
+        <div class="third-section__container container">
+
+            <!-- левая сторона -->
+            <div class="third-section__left-side">
+                <!-- заголовок -->
+                <h3 class="third-section__left-title title">
+                    <hr class="title__hr"> Обучение
+                </h3>
+                <!-- декорации -->
+                <div class="third-section__second-elipse elipse elipse_big"> 
+                    <div class="elipse__subtract elipse__subtract_big"></div>
+                </div>
+                <img src="icons/Subtract.svg" alt="рассечённый круг" class="third-section__circle elipse">
+            </div>
+
+            <!-- правая сторона -->
+            <div class="third-section__right-side">
+                <!-- заголовок -->
+                <h4 class="third-section__title title"><hr class="title__hr">Готовлю <br> виртуозов</h4>
+                <!-- текст -->
+                <p class="right-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ea eaque distinctio obcaecati numquam adipisci totam architecto maxime et sed dolorum accusantium nisi quisquam, quia modi enim ipsam in. Hic. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto mollitia consequuntur a tempore magnam sunt suscipit delectus! Pariatur quam, itaque omnis temporibus nobis excepturi repellendus commodi blanditiis at ut nihil! <br><br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, itaque dolorum assumenda consequuntur dolor nemo est, asperiores dolores repellendus omnis sint totam corporis ullam reprehenderit libero ipsa officiis voluptatum mollitia! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam ea, debitis quae repudiandae omnis, velit facere qui voluptatibus fugiat voluptate sit, quo nesciunt quasi hic non maxime adipisci error molestias!</p>
+                <!-- кнопки -->
+                <div class="right-wrapper__button buttons third-section_buttons">
+                    <button class="buttons__main-btn">Забронировать<br>урок</button> <!-- <br> это тег для переноса слов -->
+                    <div class="right-wrapper__icon-btn buttons__icon-btn">
+                        <img src="icons/icon_for_chat.svg" alt="иконка чата">
+                        <p class="buttons__text">Есть<br>вопроссы?</p>
+                    </div>
+                </div>
+                <!-- угловой круг -->
+                <div class="third-section__angular-elipse elipse elipse_big"> 
+                    <div class="elipse__subtract elipse__subtract_big"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <footer class="footer">
+        <div class="footer__container container">
+            <img src="icons/grif.svg" alt="Гриф" class="footer__img">
+            <div class="footer__wraper">
+                <h4 class="footer__title title"><hr class="title__hr footer__hr">Запишись на <br> пробный урок</h4>
+                <div class="footer__icons-box icons">
+                    <div class="icons__item">
+                        <img src="icons/Skype.svg" alt="логотип Skype">
+                    </div>
+                    <div class="icons__item">
+                        <img src="icons/VK.svg" alt="логотип VK">
+                    </div>
+                    <div class="icons__item">
+                        <img src="icons/Telegram.svg" alt="логотип Telegram">
+                    </div>
+                    <div class="icons__item">
+                        <img src="icons/instagram.svg" alt="логотип instagram">
+                    </div>
+                </div>
+                <div class="footer__angular-elipse elipse elipse_big"> 
+                    <div class="elipse__subtract elipse__subtract_big"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- js добавляется в конец файла, потому что он работает со всеми элементами этого файла только после тогго как они загрузились -->
+    <script src="js/script.js"></script> 
+</body>
+
+</html>

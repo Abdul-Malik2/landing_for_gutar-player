@@ -1,0 +1,809 @@
+@import "normalizes.scss"
+@import "resets.scss"
+
+*
+    box-sizing: border-box // для того что все падинги и марджины входили в состав нашего элемента
+
+@font-face // добавляем шрифиы
+    font-family: "Alberto" // придумываем имя
+    src: url("../fonts/Montserrat-Regular.ttf") // вводим путь урл вручную, почему подскаски пути не высвечиваются пока не разобрался
+    font-display: swap // указываем для быстрой загруззки сайта (пока наши шрифты будут грузиться браузер поставить свой заводской шрифт, а когда наши прогрузятся та шрифт просто изменится)
+    font-weight: regular  // выбирае толщину шрифта
+    font-style: normal
+
+@font-face // добавляем шрифиы
+    font-family: "Alberto" // придумываем имя
+    src: url("../fonts/Montserrat-SemiBold.ttf") // вводим путь урл вручную, почему подскаски пути не высвечиваются пока не разобрался
+    font-display: swap
+    font-weight: bold  // выбирае толщину шрифта
+    font-style: normal
+html // задаём шрифт для всей страницы
+    font-family: "Alberto"
+    scroll-behavior: smooth // чтобы плавно перемещаться по ссылкам нав-меню 
+
+$color-blue: #5290EA //сохраняем в переменную оттенок голубого который будет часто использоваться в нашем проекте
+$color-orange: #F28B64 
+
+.container //* это контейнер в котором будет находиться основной контент */
+    max-width: 1140px // задаём ширину, основного контента, чтобы при увеличении экрана контент всегда находился по центу, а растягивались по сторонам только "уши фонового контейнера"
+    margin: 0 auto //* центрируем по серендине экрана основной контейнер, независимо тот того как широко будет растягиваться экран, наш основной контейнер всегда будет находиться по центру */
+
+.main-section //* это фоновый контейнер который будет находитьься по центру(у него будут видны только "уши" по 150px), он будет содержать в себе основной контейнер */
+    position: relative // чтобы работала функция overflow: hidden
+    min-height: 800px // задаём минимальную высоту первой секции, чтобы при открытии сайта она занимала сразу весь экран, задаём только высоту, так как по умолчанию блочные элементы растягиваются на всю ширину экрана, а так как это будет наш фоновый блок, то его "уши" будут растягиваться от края до края экрана из-под элемента с классом "контейнер", а минимальную указываем для того чтобы если в дальнейшем мы захотим добавить в эту секцию ещё елементы, кторые по высоте не будут помещаться в 800рх, чтобы эти элементы не вываливались из контейнера, а контейнер расширялся
+    background: #F0F0F0 //* этот контейнер нужен, для того чтобы приоткрытии сайта, наш основной контент находился по центру экрана, ширину в этом контейнере мы задавать ен будем,для того чтобы он растягивался на всю доступную ширину экрана, тогда основной контент класса "контейнер" так и буден находиться по центру, а увеличиваться будут только его "уши" */
+    padding-top: 16px // отодвигаем чуть чуть дочерний контейнер, согласно макету
+    overflow: hidden // чтобы ысё что заходит за границы main-section исчезло
+    &__header
+        img
+            position: relative
+            z-index: 15
+    &__nav-container
+        display: flex //* flex задаём параметр flex, что бы включить флекс-бокс у нашего логотипа */
+        flex-direction: row //* чтобы логотип и меню навигации распологались на одной строке */
+        justify-content: space-between //* чтобы раздвинуть о сторонам логотип и навигационное меню */
+        height: 69px // отодвигаем чуть чуть елементы меню сверху, чтобы было как в макете
+        align-items: center // центрируем элементы меню
+
+    &__logo // для того чтобы в браузере отображалось изображение формата svg необходимо указать его размеры (для формата png размеры можно не указывать, он будет отображаться как в оригинале)
+        width: 134px // для этого формата можно задать только один параметр, н.п. ширину, высота подберется автоматически
+    &__content-container
+        position: relative
+        display: flex
+        flex-direction: row // изначально контейнер с иконками распологается под контейнером с прямоугольнриками(так как браузер считывает инвормацию с html кода сверху вниз) для того чтобы поставить контейнер с иконками на одну строчку с прямоугольниками надо задать из общему классу строчное расположение т.е. row
+    &__first-elipse
+        position: absolute
+        top: 129px
+        left: 200px 
+        z-index: 1
+        transform: rotate(180deg)
+    &__second-elipse
+        position: absolute
+        right: -120px // задаём минусовое значение, чтобы большрй круг заходил за границы страницы
+        top: 650px
+
+.nav-menu
+    &__list //* сокращённо прописываем имя родительского элемента */
+        display: flex //* задаём параметр flex, что бы включить флекс-бокс у нашего навигационного списка */
+        flex-direction: row //* задаём строчное направление, чтобы элементы нашего навигационного меню располагались в одну строку */
+        font-weight: bold
+    &__list-item
+        margin-right: 64px // задаём расстояние между елементами меню
+        font-size: 18px // задаём шрифт
+        &:last-child // одиночный знак & нужен для того чтобы призвать псевдоклас 
+            margin-right: 0 // удаляем марджин у последнего элемента, так как ему не надо им никого толкать
+a
+    text-decoration: none
+    color: black
+.left-wrapper
+    position: relative // задаём значение reletive для родительского элемента, для того чтобы дочернему можно было задать занчение absolute, для того чтобы дочерний елементи можно было передвинут по оси z относительно дочернего
+    img
+        position: relative // задаём пазицию чтобы сработала функция z-индекс, потому что если position не задать, она не включится
+        z-index: 4 // как как по умолчанию у всех елемнтов (img, фона и прямоугольников) z-индкс равен 0, для того чтобы спрятать прямоугольники за img, но оставить из поверх фона, мы задаём img z-индекс 1
+    &__regtangle-blu // задаём параметры голубого епрямоугольника
+        position: absolute // задаём значение абсолют дочернему элементу для того чтобы можно было его двигать относительно родительского элемента по оси z
+        z-index: 2
+        top: 121px // позиционируем прямоугольник
+        left: -118px // позиционируем прямоугольник
+        width: 565.95px // задаём размеры прямоугольнрика
+        height: 220px // задаём размеры прямоугольника
+        background: $color-blue // указываем переменную в которую мы раньше сохранили отттенок цвета
+        border-radius: 100px // скругляем углы прямоугольника
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25 ) // задаём параметры тени: 1- отклонение по горизонтали(можно задавать как положительные так и отрицательные значения - / = означают лево/право), 2- отклонение по вертикали(-/+ значит отклонение наверх/вниз), 3 радиус размытия тени. rgb- это кодировка цвета, а-уровень непрозрачности(параметры тени можно подобрать на сайте генератора теней)
+        transform: rotate(-272deg) //поворачиваем наш прямоугольник
+        animation-name: fli_blu // анимация
+        animation-duration: 1s // время круга анимации
+        animation-iteration-count: 1 // количество повторений анимации
+        animation-timing-function: linear // равномерность повторений
+        @keyframes fli_blu
+            0%
+                transform: rotate(150deg) // начальное положение анимации
+                top: 496px
+                left: 237px
+            100%
+                transform: rotate(-64eg) // конечное положение анимации
+
+    &__regtangle-orange
+        position: absolute 
+        z-index: 3
+        width: 618.43px
+        height: 220px
+        left: -37px
+        top: 141px
+        background: $color-orange
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25 )
+        border-radius: 100px
+        transform: rotate(300deg)
+        animation-name: fli // анимация
+        animation-duration: 1s // время круга анимации
+        animation-iteration-count: 1 // количество повторений анимации
+        animation-timing-function: linear // равномерность повторений
+        @keyframes fli
+            0%
+                transform: rotate(150deg) // начальное положение анимации
+            100%
+                transform: rotate(-50.81deg) // конечное положение анимации
+
+    &__regtangle-grey
+        position: absolute 
+        z-index: 1
+        width: 618.43px
+        height: 220px
+        left: 43px
+        top: 204px
+        background: #d1cdcd
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25 )
+        border-radius: 100px
+        transform: rotate(328deg)
+        animation-name: fli_grey // анимация
+        animation-duration: 1s // время круга анимации
+        animation-iteration-count: 1 // количество повторений анимации
+        animation-timing-function: linear // равномерность повторений
+        @keyframes fli_grey
+            0%
+                transform: rotate(250deg) // начальное положение анимации
+                top: -293px
+                left: 43px
+            100%
+                transform: rotate(-45deg) // конечное положение анимации
+
+
+.right-wrapper
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    z-index: 2
+    
+    &__icons-box
+        margin-bottom: 5px // просто чтобы было как в макете
+        padding-left: 10px // просто чтобы было как в макете
+        align-items: center
+    &__text
+        font-size: 20px
+        margin-bottom: 20px // отодвигаем от текста вниз контейнер с кнопками
+        z-index: 2
+.icons
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    z-index: 2
+    &__item
+        display: flex
+        margin-right: 45px
+        &:last-child
+            margin-right: 0px
+.title
+    font-weight: bold
+    font-size: 72px
+    margin-bottom: 20px
+    position: relative
+    z-index: 2
+    &__hr
+        width: 65px
+        position: absolute
+        margin: 0
+        bottom: 0px
+        border: none // убираем всю заводскую рамку, которая даёт по 1 пикселю со всех 4-х сторон
+        border-top: 1px solid black
+.buttons
+    display: inline-flex // выравниваем кнопки на одну линию
+    &__main-btn
+        margin-right: 32px // задаём расстояние между кнопками
+        width: 200px
+        height: 60px
+        background: $color-orange
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+        border-radius: 100px
+        border: none
+        font-size: 20px
+        color: white
+        font-weight: bold
+.main-btn // чтобы текст на кнопке с сылкой стал белым, если это не прописать, то по умолчанию он станет чёрным
+    color: white
+    &__icon-btn
+        display: inline-flex
+        align-items: center // выравниваем текст ровно напротив иконки
+        img
+            margin-right: 12px
+        &__text
+            font-style: 16px
+.elipse
+    width: 194px
+    height: 194px
+    background: linear-gradient(143.92deg, rgba(237, 123, 80, 0.5) 14.85%, rgba(72, 138, 234, 0.5) 53.25%, rgba(44, 44, 44, 0.5) 85.74%)
+    border-radius: 150px
+    display: flex 
+    justify-content: center // выравниваем по горизатали находящийся в этом круге маленикий круг &__subtract
+    align-items: center // выравниваем по вертикали
+    animation-name: rotaition // анимация
+    animation-duration: 3s // время круга анимации
+    animation-iteration-count: infinite // количество повторений анимации
+    animation-timing-function: linear // равномерность повторений
+    @keyframes rotaition
+        0%
+            transform: rotate(0deg) // начальное положение анимации
+        100%
+            transform: rotate(360deg) // конечное положение анимации
+    
+    &_big
+        width: 282px
+        height: 282px
+    &__subtract
+        width: 129.33px
+        height: 129.33px
+        background: #F0F0F0
+        border-radius: 150px
+        &_big
+            width: 188px
+            height: 188px
+
+.second-section
+    position: relative
+    min-height: 700px
+    padding-top: 50px
+    overflow: hidden
+    &__container
+        padding-top: 21px 
+        position: relative
+    &__square-box
+        position: relative
+        display: inline-flex
+        justify-content: center
+
+        margin-bottom: 21px
+    &__square-gray
+        background: #F0F0F0
+    &__square-orange
+        background: $color-orange
+    &__square-blu
+        background: $color-blue
+    &__signs-box
+        display: flex
+        justify-content: space-evenly
+    &__first-elipse
+        position: absolute
+        z-index: -1 
+        top: 30px
+        right: -60px
+        transform: rotate(90deg)
+    &__second-elipse
+        position: absolute
+        z-index: -3
+        top: 364px
+        left: -60px
+    &__lessons
+        margin-bottom: 50px
+
+.signs-box__img
+    margin-right: 20px
+
+span
+    font-weight: bold
+
+.squre
+    position: relative
+    width: 360px
+    height: 360px
+    border-radius: 10px
+    display: flex
+    align-content: end
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25 )
+    margin-right: 30px
+    &:last-child
+        margin-right: 0px
+    &__text
+        width: 280px
+        font-size: 36px
+        text-align: center
+        transform: rotate(90deg)
+        position: absolute
+        left: 150px
+        top: 130px
+
+    &__img
+        width: 80px
+        margin-right: 20px
+
+.sign
+    display: flex
+    justify-content: center
+    margin-right: 50px
+    &:last-child
+        margin-right: 0px
+.sign-text
+    font-size: 18px
+    span
+        font-size: 48px
+
+.third-section
+    min-height: 640px
+    background: #F0F0F0
+    overflow: hidden
+    &__container
+        position: relative
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        padding-top: 46px
+        margin-bottom: 20px
+    &__left-side
+        padding-left: 167px
+    &__right-side
+        max-width: 480px 
+    &__second-elipse
+        position: absolute
+        top: 120px
+        left: 90px
+        transform: rotate(60deg)
+    &__circle
+        position: absolute
+        top: 250px
+        left: 30px
+        transform: rotate(60deg)
+    &__angular-elipse
+        position: absolute
+        top: -80px
+        left: 1050px
+        transform: rotate(-120deg)
+.right-text
+    font-size: 18px
+    margin-bottom: 20px
+
+.footer
+    &__container
+        min-height: 272px // высоту задаём именно для контейнера, а не для футера, для того чтобы можно было центрировать дочерний элемент коньейнера по вертикали
+        display: flex
+        justify-content: end // ширину отдельно не задаём та как для всех контейнеров ширина задана 1440хр, по-этому все элементы внутри контейнеров по горизотали центируюстя без проблем
+        align-items: center
+        position: relative
+    &__img // изображение добавленно не в контейнер а в футер, чтобы при просмотре на большём экране изображение какбы выходило за пределы контейнера
+        position: absolute
+        left: -250px
+        bottom: 0px
+
+    &__hr
+        position: absolute
+        top: 65px
+    &__angular-elipse
+        position: absolute
+        top: -3px
+        right: -60px
+
+@media (max-width: 1199px)// адаптируем под маленький компьютер или горизонтальный планшет
+    //первая секция
+    .main-section
+        min-height: 575px
+        &__second-elipse
+            z-index: -5
+            top: 350px
+            right: -121px
+        &__first-elipse
+            left: -25px
+            top: 60px
+    .container
+        width: 960px
+    .left-wrapper 
+        img
+            width:  600px
+
+        &__regtangle-blu
+            width: 500px
+            height: 200px
+        &__regtangle-orange
+            width: 500px
+            height: 200px
+        &__regtangle-grey
+            width: 500px
+            height: 200px
+
+    // вторая секция
+    .second-section
+        min-height: 550px
+        padding: 0
+    .squre
+        width: 300px
+        height: 300px
+    .squre__text
+        left: 100px
+    .sign
+        margin-right: 25px
+    // третья секция
+    .third-section__container
+        padding-top: 20px
+    .third-section__left-side
+        padding-left: 10%
+    .third-section__right-side
+        max-width: 450px
+    .footer__angular-elipse
+        right: 5px
+
+@media (max-width: 991px)// адаптируем под вертикальный планшет
+    .container
+        width: 720px
+        //первая секция
+    .main-section
+        min-height: 500px
+        &__second-elipse
+            z-index: -5
+            top: 250px
+            right: -121px
+        &__first-elipse
+            top: 36px
+            left: -45px
+    .left-wrapper 
+        img
+            width:  500px
+
+        &__regtangle-blu
+            width: 400px
+            height: 120px
+        &__regtangle-orange
+            width: 400px
+            height: 120px
+        &__regtangle-grey
+            width: 400px
+            height: 120px
+    .right-wrapper__icons-box
+        margin-bottom: 20px
+        padding-left: 0
+    .icons__item
+        margin-right: 20px
+    .title 
+        font-size: 50px
+    .right-wrapper__text
+        font-size: 15px
+        Репититор игры на гитаре br с десятилетним опытом преподавания br Умаев Тамерлан Русланович
+    .buttons
+        flex-direction: column
+    .buttons__main-btn
+        margin-right: 0
+        margin-bottom: 20px
+    .main-section__first-elipse
+        top: 36px
+        left: -45px
+
+    // вторая секция
+    .second-section
+        min-height: 380px
+        padding: 0
+        &__container
+            padding-top: 20px
+        &__lessons
+            margin-bottom: 20px
+    .squre
+        width: 200px
+        height: 200px
+    .squre__text
+        top: 68px
+        left: 25px
+    .squre__text
+        font-size: 20px
+    .signs-box__img
+        width: 50px
+    .sign
+        margin-right: 15px
+    .sign-text
+        font-size: 15px
+    .sign-text span
+        font-size: 25px
+    .second-section__second-elipse
+        top: 185px
+    // третья секция
+    .third-section__container
+        padding-top: 20px
+        justify-content: center
+    .third-section__left-title
+        display: none // так как экран стал уже, этот заголовок нам не нужен. прописываем чтобы в этом разрешении этот заголовок не отображался
+    .third-section__right-side
+        position: relative
+        z-index: 5
+        max-width: 450px
+    .buttons__icon-btn
+        display: flex
+        flex-direction: row
+        justify-content: space-evenly
+    .third-section_buttons
+        display: flex
+        padding-left: 250px
+    // футер
+    .footer__angular-elipse
+        right: 5px
+    .footer__img
+        width: 600px
+    .footer__icons-box
+        position: relative
+        z-index: 5
+
+
+@media (max-width: 767px)// адаптируем под горизонтальный телефон
+    .container
+        width: 540px
+    //настройкв всплывающего меню и гамбургера
+    .nav-menu
+        //display: none // скрываем меню пока не сработал nav-menu_active
+        position: fixed // для того чтобы меню было всегда зафиксированно на одном месте, независимо прокручиваем мы страницу или нет
+        top: 0 // задаём координаты меню
+        right: -100% // вместо условия (display: none) для того чтобы скрыть меню в неактивном режиме, не просто его удала=яем, а скрываем справа, чтобы при нажатии на гамбургер, он выезжало справа
+        height: 50vh // задаём высоту меню чтобы она всегда была равна 100% видимого экрана
+        width: 30%
+        background: linear-gradient(143.92deg, rgba(237, 123, 80, 0.9) 14.85%, rgba(72, 138, 234, 0.9) 53.25%, rgba(44, 44, 44, 0.9) 85.74%)
+        z-index: 8
+        transition: 1s all // чтобы меню выезжало плавно втечении одной секунды
+        &__list-item
+            font-size: 30px
+
+        &__list 
+            display: flex
+            flex-direction: column
+            justify-content: space-evenly
+            font-weight: bold
+            height: 100% // нужно обязательно указать высоту, чтобы заработало условие justify-content: space-evenly
+            align-items: center
+        &__list-item
+            margin-right: 0
+
+    .hamburger
+        width: 30px
+        position: fixed
+        top: 40px
+        right: 30px
+        height: 14px // задаём создавшуюся высоту для того чтобы удобно было нажимать пальцем, так как это моб версия(создавшаяся высота это потому что у нас 3 span по 2рх и 2 margin-bottom по 4px: 6+8=14 )
+        z-index: 9
+        &__span
+            height: 2px
+            width: 100%
+            display: block
+            background: black
+            margin-bottom: 4px
+            transition: 1s all // чтобы был плавный преход из состояния гамбургера в состояние крестика спомощью свойства trasitin задаём этому действию в ремя 1секунда, свойство all говорить что transitin распространяется на все элементы
+            &:last-child
+                margin-bottom: 0
+    .hamburger_active // делаем крестик
+        .hamburger__span
+            margin-bottom: -2px // для того чтобы крестик стал ровным, убираем  margin-bottom: 4рх для того чтобы чуть раздвинуть полоски гамбургера
+            &:nth-child(1) // обращаемя к псевдоклассу nth-child с указанием его порядкового номера, для того чтобы обратиться к каждому элементу span в отдельности, когда у каждого елемента нет отдельного класса
+                transform: translateY(3px) rotate(-45deg)  // когда наш гамбургер будет превращаться в крестик он будет чуть чуть приподниматься вверх на 3рх, для того чтобы этого не произошло мы применили свойство translateY(3px), которое по оси У сдвигает элементы на 3рх
+            &:nth-child(2)
+                display: none // чтобы средняя палочка исчезла
+            &:nth-child(3)
+                transform: translateY(3px) rotate(45deg) 
+    .nav-menu_active // возвращаем нав-меню при активности
+        //display: block
+        right: 0 // что бы в активном положении меню не просто появлялось как при условии (display: block) а выезжало справа
+    // адаптация сайта
+        // первая секция
+    .main-section__content-container
+        min-height: 400px
+    .left-wrapper img
+        width: 414px
+    .right-wrapper
+        position: absolute
+        left: 310px
+        z-index: 5
+        // вторая секция
+    .squre 
+        width: 150px
+        height: 150px
+    .squre__text
+        top: 55px
+        left: -26px
+    .second-section__signs-box 
+        display: flex
+        justify-content: space-between
+    .sign 
+        display: flex
+        flex-direction: column
+        margin-right: 0
+    .signs-box__img
+        margin-bottom: 10px
+    .third-section__second-elipse 
+        top: -143px
+        left: 399px
+    .third-section__circle
+        top: 2px
+        left: 61px
+    //.third-section__left-title  ??????????????????????
+        display: none
+    .footer__img
+        width: 487px
+        left: -150px
+        top: -130px
+
+
+
+@media (max-width: 575px)// адаптируем под вертикальный телефон
+    .container
+        width: 100%
+        //настройкв всплывающего меню и гамбургера
+    .nav-menu
+        //display: none // скрываем меню пока не сработал nav-menu_active
+        position: fixed // для того чтобы меню было всегда зафиксированно на одном месте, независимо прокручиваем мы страницу или нет
+        top: 0 // задаём координаты меню
+        right: -100% // вместо условия (display: none) для того чтобы скрыть меню в неактивном режиме, не просто его удала=яем, а скрываем справа, чтобы при нажатии на гамбургер, он выезжало справа
+        height: 50vh // задаём высоту меню чтобы она всегда была равна 100% видимого экрана
+        width: 30%
+        background: linear-gradient(143.92deg, rgba(237, 123, 80, 0.9) 14.85%, rgba(72, 138, 234, 0.9) 53.25%, rgba(44, 44, 44, 0.9) 85.74%)
+        z-index: 8
+        transition: 1s all // чтобы меню выезжало плавно втечении одной секунды
+        &__list-item
+            font-size: 15px
+
+        &__list 
+            display: flex
+            flex-direction: column
+            justify-content: space-evenly
+            font-weight: bold
+            height: 100% // нужно обязательно указать высоту, чтобы заработало условие justify-content: space-evenly
+            align-items: center
+        &__list-item
+            margin-right: 0
+
+    .hamburger
+        width: 30px
+        position: fixed
+        top: 11px
+        right: 30px
+        height: 14px // задаём создавшуюся высоту для того чтобы удобно было нажимать пальцем, так как это моб версия(создавшаяся высота это потому что у нас 3 span по 2рх и 2 margin-bottom по 4px: 6+8=14 )
+        z-index: 9
+        &__span
+            height: 2px
+            width: 100%
+            display: block
+            background: black
+            margin-bottom: 4px
+            transition: 1s all // чтобы был плавный преход из состояния гамбургера в состояние крестика спомощью свойства trasitin задаём этому действию в ремя 1секунда, свойство all говорить что transitin распространяется на все элементы
+            &:last-child
+                margin-bottom: 0
+    .hamburger_active // делаем крестик
+        .hamburger__span
+            margin-bottom: -2px // для того чтобы крестик стал ровным, убираем  margin-bottom: 4рх для того чтобы чуть раздвинуть полоски гамбургера
+            &:nth-child(1) // обращаемя к псевдоклассу nth-child с указанием его порядкового номера, для того чтобы обратиться к каждому элементу span в отдельности, когда у каждого елемента нет отдельного класса
+                transform: translateY(3px) rotate(-45deg)  // когда наш гамбургер будет превращаться в крестик он будет чуть чуть приподниматься вверх на 3рх, для того чтобы этого не произошло мы применили свойство translateY(3px), которое по оси У сдвигает элементы на 3рх
+            &:nth-child(2)
+                display: none // чтобы средняя палочка исчезла
+            &:nth-child(3)
+                transform: translateY(3px) rotate(45deg) 
+    .nav-menu_active // возвращаем нав-меню при активности
+        //display: block
+        right: 0 // что бы в активном положении меню не просто появлялось как при условии (display: block) а выезжало справа
+    // адаптация сайта
+        // первая секция
+    .main-section__nav-container
+        margin-bottom: 40px
+    .main-section__content-container
+        min-height: 320px
+        flex-direction: column
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+
+    .left-wrapper
+        position: relative
+        margin-left: 10px
+        margin-bottom: 50px
+        img
+            width: 240px
+            margin-left: 35px
+    .regtangle
+        width: 180px
+        height: 60px
+    .left-wrapper__regtangle-orange
+        left: 50px
+        top: 79px
+    .left-wrapper__regtangle-blu
+        top: 66px
+        left: 9px
+    .left-wrapper__regtangle-grey
+        top: 99px
+        left: 90px
+    .right-wrapper
+        position: relative
+        left: 0
+    .right-wrapper__icons-box
+        justify-content: center
+        margin-bottom: 30px
+    .right-wrapper__text
+        margin-bottom: 75px
+    .icons__item
+        img
+            width: 30px
+            position: relative
+    .main-section__first-elipse
+        top: -321px
+        left: 93px
+        position: relative
+    .main-section__second-elipse
+        display: none
+    .title
+        display: flex
+        justify-content: center
+        font-size: 30px
+    .right-wrapper__text
+        text-align: center
+        display: inline-flex
+        justify-content: center
+    .buttons__main-btn
+        display: flex
+        justify-content: center
+    .right-wrapper__button 
+        flex-wrap: wrap
+        align-content: center
+    .buttons__main-btn
+        width: 151px
+        height: 42px
+        font-size: 12px
+        padding-top: 8px
+    .buttons
+        // вторая секция
+    .second-section
+        &__container
+            display: inline-flex
+            justify-content: space-evenly
+        &__lessons
+            display: none
+        &__square-box
+            display: flex
+            flex-direction: column
+            min-height: 531px
+            justify-content: space-evenly
+            flex-wrap: wrap
+            margin-bottom: 0
+            
+            img
+                width: 95px
+        &__signs-box
+            display: flex
+            flex-direction: column
+
+    .squre 
+        width: 150px
+        height: 150px
+        margin-right: 0
+        //margin-bottom: 30px
+    .squre__text
+        top: 55px
+        left: -26px
+        font-size: 15px
+    .second-section__signs-box 
+        display: flex
+        justify-content: space-evenly
+    .sign 
+        display: flex
+        flex-direction: column
+        margin-right: 0
+    .signs-box__img
+        margin-bottom: 10px
+        // третья секция
+    .third-section__container
+        margin-right: 20px
+    .third-section__left-title 
+        display: none
+    .right-text
+        font-size: 15px
+    .third-section_buttons 
+        display: flex
+        padding-left: 0px
+        flex-direction: column
+        justify-content: center
+        align-content: flex-end
+    .third-section__second-elipse 
+        top: -143px
+        left: 399px
+    .third-section__circle
+        top: 2px
+        left: 61px
+        // футер
+    .footer__img
+        width: 84vw
+        left: -90px
+        top: -47vw
+    .footer__container
+        justify-content: center
+    .footer__angular-elipse
+        right: 55px
+        //position: relative
+    .footer__wraper
+
